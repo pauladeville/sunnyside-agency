@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;900&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700;900&display=swap" rel="stylesheet">
@@ -17,7 +16,7 @@
 
   <header>
     <img src="./images/logo.svg" alt="">
-    <ul>
+    <ul class="desktop-menu">
       <li>
         <a href="#">About</a>
       </li>
@@ -27,10 +26,23 @@
       <li>
         <a href="#">Projects</a>
       </li>
-      <li>
-        <a href="#" id="contact">Contact</a>
+      <li class="contact">
+        <a href="#" class="contact">Contact</a>
       </li>
     </ul>
+
+    <div class="hamburger">
+      <div class="bar"></div>
+    </div>
+
+    <nav id="mobile-nav">
+      <div class="white-box">
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Projects</a>
+        <a href="#" class="contact-mobile">Contact</a>
+      </div>
+    </nav>
   </header>
 
   <div id="banner">
@@ -45,7 +57,7 @@
         <h2>Transform your brand</h2>
         <p>We are a full-service creative agency specializing in helping brands grow fast.
         Engage your clients through compelling visuals that do most of the marketing for you.</p>
-        <a href="#">Learn more</a>
+        <a href="#" class="overline">Learn more</a>
       </div>
     </div>
   </div>
@@ -56,17 +68,17 @@
       <div class="padding">
         <h2>Stand out to the right audience</h2>
         <p>Using a collaborative formula of designers, researchers, photographers, videographers, and copywriters, we’ll build and extend your brand in digital places.</p>
-        <a href="#">Learn more</a>
+        <a href="#" class="overline overline-red">Learn more</a>
       </div>
     </div>
   </div>
 
   <div class="skills">
-    <div class="skills-box">
+    <div id="graphic-design" class="skills-box">
       <h3>Graphic design</h3>
       <p>Great design makes you memorable. We deliver artwork that underscores your brand message and captures potential clients’ attention.</p>
     </div>
-    <div class="skills-box">
+    <div id="photography" class="skills-box">
       <h3>Photography</h3>
       <p>Increase your credibility by getting the most stunning, high-quality photos that improve your business image.</p>
     </div>
@@ -75,27 +87,35 @@
   <div class="testimonials">
     <h4>Client testimonials</h4>
 
-    <div class="testimonials-box">
-      <img src="./images/image-emily.jpg" alt="">
-      <p class="testimonials-box-verbatim">We put our trust in Sunnyside and they delivered, making sure our needs were met and deadlines were always hit.</p>
-      <p class="testimonials-box-name">Emily R.</p>
-      <p class="testimonials-box-position">Marketing Director</p>
-    </div>
+    <div class="testimonials-flex">
+      <div class="testimonials-card">
+        <img src="./images/image-emily.jpg" alt="">
+        <p class="testimonials-card-verbatim">We put our trust in Sunnyside and they delivered, making sure our needs were met and deadlines were always hit.</p>
+        <p class="testimonials-card-name">Emily R.</p>
+        <p class="testimonials-card-position">Marketing Director</p>
+      </div>
 
-    <div class="testimonials-box">
-      <img src="./images/image-thomas.jpg" alt="">
-      <p class="testimonials-box-verbatim">Sunnyside’s enthusiasm coupled with their keen interest in our brand’s success made it a satisfying and enjoyable experience.</p>
-      <p class="testimonials-box-name">Thomas S.</p>
-      <p class="testimonials-box-position">Chief Operating Officer</p>
+      <div class="testimonials-card">
+        <img src="./images/image-thomas.jpg" alt="">
+        <p class="testimonials-card-verbatim">Sunnyside’s enthusiasm coupled with their keen interest in our brand’s success made it a satisfying and enjoyable experience.</p>
+        <p class="testimonials-card-name">Thomas S.</p>
+        <p class="testimonials-card-position">Chief Operating Officer</p>
+      </div>
 
-      <div class="testimonials-box">
+      <div class="testimonials-card">
         <img src="./images/image-jennie.jpg" alt="">
-        <p class="testimonials-box-verbatim">Incredible end result! Our sales increased over 400% when we worked with Sunnyside.<br>Highly recommended!</p>
-        <p class="testimonials-box-name">Jennie F.</p>
-        <p class="testimonials-box-position">Business Owner</p>
+        <p class="testimonials-card-verbatim">Incredible end result! Our sales increased over 400% when we worked with Sunnyside.<br>Highly recommended!</p>
+        <p class="testimonials-card-name">Jennie F.</p>
+        <p class="testimonials-card-position">Business Owner</p>
       </div>
     </div>
+  </div>
 
+  <div class="carousel">
+    <img src="./images/desktop/image-gallery-milkbottles.jpg" alt="">
+    <img src="./images/desktop/image-gallery-orange.jpg" alt="">
+    <img src="./images/desktop/image-gallery-cone.jpg" alt="">
+    <img src="./images/desktop/image-gallery-sugarcubes.jpg" alt="">
   </div>
 
 <footer>
@@ -115,5 +135,6 @@
   </div>
 </footer>
 
+<script type="text/javascript" src="app.js"></script>
 </body>
 </html>

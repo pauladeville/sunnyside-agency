@@ -1,3 +1,54 @@
+div.clickEffect{
+  position:absolute;
+  box-sizing:border-box;
+  border-style:solid;
+  border-color:#fff;
+  border-radius:50%;
+  animation:clickEffect 0.4s ease-out;
+  z-index:99999;
+}
+@keyframes clickEffect{
+  0%{
+    opacity:1;
+    width:0.5em;
+    height:0.5em;
+    margin:-0.25em;
+    border-width:0.5em;
+  }
+  100%{
+    opacity:0.2;
+    width:15em;
+    height:15em;
+    margin:-7.5em;
+    border-width:0.03em;
+  }
+}
+.overline{
+  display: inline-block;
+  position: relative;
+  &::after{
+    content:"";
+    background-color:hsl(51, 100%, 49%);
+    height:5px;
+    width:95px;
+    position: absolute;
+    top:14px;
+    left:0;
+    border-radius: 50px;
+    opacity:0;
+  }
+  &:hover{
+    &::after{
+      opacity: 1;
+      transition: opacity 300ms ease-out;
+
+    }
+  }
+}
+.overline-red::after{
+  background-color: hsl(7, 99%, 70%);
+}
+
 *{
   padding: 0;
   margin: 0;
@@ -5,7 +56,7 @@
 body{
   background-color: #fff;
 }
-h2{
+h2, h3, h4{
   font-family: 'Fraunces', serif;
 }
 p, a {
@@ -13,37 +64,142 @@ p, a {
   text-decoration: none;
 }
 
+
 header{
   background-color: #3EBEFF;
-  padding: 15px 40px;
+  padding: 20px 40px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  img{
+    padding: 10px;
+    &:hover{
+      transform: scale(1.2);
+      transition: transform 300ms ease-out;
+    }
+  }
   ul{
     list-style-type: none;
     display: flex;
     flex-direction: row;
     align-items: flex-end;
     justify-content: space-between;
-    li {
-      padding: 10px 25px;
-      margin: 5px;
+    li{
+      padding: 10px 20px;
+      margin: 0 5px;
       border-radius: 50px;
       transition: background-color 300ms ease-out;
+      &.contact {
+        background-color: #fff;
+      }
       &:hover{
         background-color: hsla(0,0%,100%,0.25);
       }
       a{
         color: #fff;
       }
-      a#contact{
+      a.contact{
         text-transform: uppercase;
         font-family: 'Fraunces', serif;
+        color: #3EBEFF;
+        &:hover{
+          color:#fff;
+        }
+
       }
     }
   }
 }
+
+div.hamburger, #mobile-nav{
+  display: none;
+}
+
+nav#mobile-nav {
+  display: block;
+  position: fixed;
+  top:-350px;
+  left: 0;
+  width:100%;
+  height:350px;
+  background-color: transparent;
+  z-index: 8;
+  transition: 0.3s;
+  &.is-active{
+    top: 100px;
+  }
+  .white-box{
+    background-color: #fff;
+    width: 60%;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+  }
+  a {
+    margin: 0 auto;
+    width: 50%;
+    display: block;
+    text-align: center;
+    padding: 15px;
+    color: hsl(232, 10%, 55%);
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 50px;
+    transform: scale(1);
+    transition: transform 300ms ease-in-out;
+    &:hover {
+      transform: scale(1.05);
+    }
+    &.contact-mobile{
+      font-family: 'Fraunces', serif;
+      background-color: hsl(51, 100%, 49%);
+      text-transform: uppercase;
+      width: 120px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 1em;
+      color: hsl(212, 27%, 19%);
+    }
+  }
+}
+
+.hamburger {
+  position: fixed;
+  right: 22px;
+  top: 22px;
+  display: block;
+  width: 40px;
+  height: 50px;
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+  border: none;
+  background: none;
+  z-index: 9;
+}
+.hamburger .bar, .hamburger::after, .hamburger::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 5px;
+  background-color: #fff;
+  margin: 6px 0px;
+  transition: 0.4s;
+  border-radius: 3px;
+}
+.hamburger.is-active::before {
+  transform: rotate(-45deg) translate(-8px, 6px);
+}
+.hamburger.is-active::after {
+  transform: rotate(45deg) translate(-9px, -8px);
+}
+.hamburger.is-active .bar {
+  opacity: 0;
+}
+
 
 div#banner {
   background-image: url("./images/desktop/image-header.jpg");
@@ -60,6 +216,7 @@ div#banner {
     color: #fff;
     text-align: center;
     letter-spacing: 5px;
+    padding: 10%;
   }
   img{
     width: 20px;
@@ -109,4 +266,227 @@ div.offer{
 
 div.offer-stand {
   flex-direction: row-reverse;
+}
+
+div.skills{
+  display: flex;
+  flex-direction: row;
+  &-box{
+    flex:1;
+    text-align: center;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    h3{
+      color: hsl(198, 62%, 26%);
+      font-weight: 900;
+      padding: 50% 0 5% 0;
+    }
+    p{
+      color: hsl(198, 62%, 26%);
+      font-size: 0.8em;
+      width: 60%;
+      margin: auto;
+      padding-bottom: 10%;
+    }
+  }
+}
+div#graphic-design{
+  background-image: url(./images/desktop/image-graphic-design.jpg);
+}
+div#photography{
+  background-image: url(./images/desktop/image-photography.jpg);
+}
+
+.testimonials{
+  padding: 10%;
+  text-align: center;
+  h4{
+    color: hsl(210, 4%, 67%);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1em;
+    margin: 5% 0 10% 0;
+  }
+  &-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  &-card{
+    flex: 1;
+    padding: 15px;
+    img{
+      border-radius: 150px;
+      width: 60px;
+    }
+    &-verbatim{
+      color: hsl(213, 9%, 39%);
+      font-size: 0.8em;
+      line-height: 1.6em;
+      margin:30px 0 50px 0;
+    }
+    &-name{
+      font-family: 'Fraunces', serif;
+      color: hsl(212, 27%, 19%);
+      font-weight: 900;
+      font-size: 1em;
+    }
+    &-position{
+      color: hsl(210, 4%, 67%);
+      font-size: 0.8em;
+      margin: 15px 0 30px 0;
+    }
+  }
+}
+
+div.carousel{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  img{
+    flex-basis:100%;
+    width: 100%;
+  }
+}
+
+footer{
+  background-color: #91D3C5;
+  color: hsl(168, 34%, 41%);
+  text-align: center;
+  padding: 5%;
+  h3{
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    font-size: 2em;
+    margin-bottom: 25px;
+  }
+  ul{
+    list-style-type: none;
+    color: #fff;
+    margin-bottom: 50px;
+    a {
+      color: hsl(168, 34%, 41%);
+      transition: color ease-out 300ms;
+      padding: 0 15px;
+      font-size: 0.8em;
+      &:hover{
+        color: #fff;
+      }
+    }
+  }
+  div.social{
+    img{
+      padding: 15px;
+      &:hover{
+        filter: brightness(10);
+      }
+    }
+  }
+}
+
+//MEDIA QUERIES
+@media (max-width: 700px) {
+  ul.desktop-menu{
+    display: none;
+  }
+  div.hamburger{
+    display: block;
+  }
+  div.offer{
+    flex-direction: column;
+    div.text{
+      text-align: center;
+      div.padding {
+        padding: 20% 10%;
+      }
+    }
+  }
+  div.skills{
+    flex-direction: column;
+    &-box{
+      background-position: top;
+      background-size: cover;
+      background-repeat: no-repeat;
+      h3{
+        padding: 100% 0 10% 0;
+      }
+      p{
+        color: hsl(198, 62%, 26%);
+        font-size: 0.8em;
+        width: 80%;
+        margin: auto;
+        padding-bottom: 20%;
+      }
+    }
+  }
+  div#graphic-design{
+    background-image: url(./images/mobile/image-graphic-design.jpg);
+  }
+  div#photography{
+    background-image: url(./images/mobile/image-photography.jpg);
+  }
+  .testimonials{
+    padding: 10% 5%;
+    text-align: center;
+    h4{
+      margin: 15% 0;
+    }
+    &-flex{
+      flex-direction: column;
+    }
+    &-card{
+      &-verbatim{
+        margin:20px 0;
+      }
+      &-position{
+        margin: 10px 0 30px 0;
+      }
+    }
+  }
+  div.carousel{
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    img{
+      flex-basis:50%;
+    }
+  }
+  footer{
+    padding: 10% 5%;
+    h3{
+      font-family: 'Barlow', sans-serif;
+      font-weight: 900;
+      font-size: 2em;
+      margin-bottom: 10%;
+    }
+    ul{
+      list-style-type: none;
+      color: #fff;
+      margin-bottom: 50px;
+      a {
+        color: hsl(168, 34%, 41%);
+        transition: color ease-out 300ms;
+        padding: 0 15px;
+        font-size: 0.8em;
+        &:hover{
+          color: #fff;
+        }
+      }
+    }
+    div.social{
+      img{
+        padding: 15px;
+        &:hover{
+          filter: brightness(10);
+        }
+      }
+    }
+  }
+
 }
